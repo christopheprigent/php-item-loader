@@ -70,7 +70,7 @@ page {
  }
  ```
 
-### threadind
+### threading
 
  we use parallel, https://www.php.net/manual/fr/book.parallel.php
 
