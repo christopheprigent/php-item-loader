@@ -33,18 +33,20 @@ Vous expliquez vos hypothèses, choix et tradeoffs.
 ## my understanding
 
 ```monodraw                                                                               
-                                                                             ┌───────────┐
-                                                                             │  EXT API  │
-                                 ┌──────────────────┐                        └───────────┘
-                                 │                  │                              ▲      
-┌───────────┐                    │                  │                              │      
-│           │      compute item  │    item-load     │  resquest PAGE_SIZE items    │      
-│  Threads  │◀─ ─ ─ ─ ─┌─────────│                  │──────────────────────────────┘      
-│  ┌────────┴──┐                 │                  │                                     
-└──┤           │       │         │                  │                                     
-   │  Threads  │◀ ─ ─ ─          └──────────────────┘                                     
-   │           │                                                                          
-   └───────────┘                                                                          
+```                                                                                                
+                                                                                      ┌───────────┐
+                                                                                      │  EXT API  │
+                                                     ┌───────────────┐                └───────────┘
+                                                     │               │                      ▲      
+┌───────────────┐     ┌───────────┐                  │               │   resquest PAGE_SIZE │      
+│               │     │           │    compute item  │   item-load   │         items        │      
+│              ◀┼─────│  Threads  │◀─ ─ ─ ─ ─────────│               │──────────────────────┘      
+│    compute    │     │ ┌─────────┴─┐       │        │               │                             
+│   endpoint    │     └─┤           │                │               │                             
+│              ◀┼───────│  Threads  │◀─ ─ ─ ┘        └───────────────┘                             
+│               │       │           │                                                              
+└───────────────┘       └───────────┘                                                              
+```                                                                                                                                                                         
 ```                                                                                       
 
 ## some details
@@ -76,8 +78,10 @@ page {
 
 ### tradeoffs
 
-  using parallel on the same server who call the external API reduce the available memory
+  ~~using parallel on the same server who call the external API reduce the available memory~~
 
+  to reduce the complexity,
+  
   we should consider spliting the project in 2 parts :
 
   - retrieve and secure the external data
