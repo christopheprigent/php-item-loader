@@ -5,17 +5,29 @@ technical test
 ## input
 
 Scenario :
+
 Nous devons récolter une grande quantité de données fournies par un tiers.
+
 Compte tenu du volume, il est impossible de tout charger en mémoire en amont du traitement.
+
 L'API tierce ayant un API rate, nous ne pouvons pas non plus faire un appel pour chaque item,
+
 sans quoi nous serons bloqués très rapidement.
+
 Pour chaque item reçu, nous effectuons un traitement. Celui-ci est suffisamment
+
 long pour que ce soit rentable de paralléliser le travail.
+
 Chaque item sera donc envoyé à un service distant pour être traité.
+
 Une fois le résultat du traitement reçu, il devient disponible pour notre client (notre object).
+
 Afin que l'objet soit simple d'utilisation, nous devons pouvoir itérer dessus avec un simple foreach.
+
 Un exemple d'utilisation ci-après.
+
 A vous d'implémenter une classe qui résous notre use case.
+
 Vous expliquez vos hypothèses, choix et tradeoffs.
 
 ## my understanding
@@ -40,8 +52,10 @@ Vous expliquez vos hypothèses, choix et tradeoffs.
 ### PAGE_SIZE
 
  ratio between MEMORY_AVAILABLE and AVERAGE_OBJ_SIZE (empirical)
+ 
  we must maximize this value to avoid rate limited issue.
- define('PAGE_SIZE', intval(MEMORY_AVAILABLE/AVERAGE_OBJ_SIZE));
+ 
+`define('PAGE_SIZE', intval(MEMORY_AVAILABLE/AVERAGE_OBJ_SIZE));`
 
 ### external API
 
