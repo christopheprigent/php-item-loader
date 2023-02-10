@@ -14,7 +14,11 @@ class ItemLoader implements Iterator
         public $totalPages = 0
     ) {
         $this->producer = function (string $data) {
-            // doing huge computation on data
+            // doing huge computation on data on another server
+            // file_get_contents("/data/compute", stream_context_create(array_merge(["content"=>$data], $this->ctx_option)));
+            
+            
+            // MOCKED
             sleep(rand(1, 2));
             return str_replace('amount of data', "amount of computed data\n", $data);
         };
