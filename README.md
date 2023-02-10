@@ -32,8 +32,7 @@ Vous expliquez vos hypothèses, choix et tradeoffs.
 
 ## my understanding
 
-```monodraw                                                                               
-```                                                                                                
+```monodraw                                                                                                                                                                               
                                                                                       ┌───────────┐
                                                                                       │  EXT API  │
                                                      ┌───────────────┐                └───────────┘
@@ -46,8 +45,7 @@ Vous expliquez vos hypothèses, choix et tradeoffs.
 │              ◀┼───────│  Threads  │◀─ ─ ─ ┘        └───────────────┘                             
 │               │       │           │                                                              
 └───────────────┘       └───────────┘                                                              
-```                                                                                                                                                                         
-```                                                                                       
+```                                                                                                                                                                                                                                           
 
 ## some details
 
