@@ -76,7 +76,7 @@ page {
 
 ### tradeoffs
 
-  using parallel on the same server who call the external API reduce the available mememory
+  using parallel on the same server who call the external API reduce the available memory
 
   we should consider spliting the project in 2 parts :
 
